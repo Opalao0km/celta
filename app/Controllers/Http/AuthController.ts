@@ -14,8 +14,8 @@ export default class AuthController {
 
     public async login({ request, auth, response }: HttpContextContract) {
         try {
-          const { email, passsword } = request.all()
-          const token = await auth.use('api').attempt (email, passsword, {
+          const { email, password } = request.all()
+          const token = await auth.use('api').attempt (email, password, {
                 expiresIn: '1day'
           })
             const user = await User.findByOrFail("email", email)
