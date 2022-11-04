@@ -1,6 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Dado from 'app/Models/Dado'
-import DadoValidator from 'app/Validators/DadoValidator'
+import Dado from 'App/Models/Dado'
+import DadoValidator from 'App/Validators/DadoValidator'
 
 export default class DadosController {
   public async index({ }: HttpContextContract) {

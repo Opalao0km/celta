@@ -9,5 +9,5 @@ Route.get('/', async () => {
 Route.post("/register", "AuthController.register")
 Route.post("/login", "AuthController.login")
 Route.group(() => {
-  Route.resource("Dados", "DadosController").apiOnly()
+  Route.resource("dados", "DadosController").apiOnly()
 }).middleware('auth')
