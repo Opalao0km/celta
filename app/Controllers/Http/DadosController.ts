@@ -24,17 +24,31 @@ export default class DadosController {
   }
 
   public async update({ request, params, response }: HttpContextContract) {
-    const { cpf } = await request.validate(DadoValidator)
+    const { title } = await request.validate(DadoValidator)
     try {
       const topic = await Dado.findOrFail(params.id)
-      topic.cpf = cpf
+      topic.title = title
       await topic.save()
       return topic
 
     } catch (error) {
-      response.status(400).send("CPF não encontrado!!!")
+      response.status(400).send("Título Inválido!!!")
     }
   }
+
+  public async update({ request, params, response }: HttpContextContract) {
+    const { message } = await request.validate(DadoValidator)
+    try {
+      const topic = await Dado.findOrFail(params.id)
+      topic.message = message
+      await topic.save()
+      return topic
+
+    } catch (error) {
+      response.status(400).send("Mensagem Inválida!!!")
+    }
+  }
+
 
   public async destroy({ params, response }: HttpContextContract) {
     try {

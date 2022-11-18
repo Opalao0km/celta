@@ -24,10 +24,10 @@ export default class DadoValidator {
    *    ```
    */
   public schema = schema.create({
-    cpf: schema.string({}, [
+    title: schema.string({}, [
       rules.required()
     ]),
-    numerocartao: schema.string({}, [
+    message: schema.string({}, [
       rules.required()
     ]),
   })
