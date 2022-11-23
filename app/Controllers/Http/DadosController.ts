@@ -24,28 +24,16 @@ export default class DadosController {
   }
 
   public async update({ request, params, response }: HttpContextContract) {
-    const { title } = await request.validate(DadoValidator)
+    const { title, message } = await request.validate(DadoValidator)
     try {
       const topic = await Dado.findOrFail(params.id)
       topic.title = title
-      await topic.save()
-      return topic
-
-    } catch (error) {
-      response.status(400).send("Título Inválido!!!")
-    }
-  }
-
-  public async update({ request, params, response }: HttpContextContract) {
-    const { message } = await request.validate(DadoValidator)
-    try {
-      const topic = await Dado.findOrFail(params.id)
       topic.message = message
       await topic.save()
       return topic
 
     } catch (error) {
-      response.status(400).send("Mensagem Inválida!!!")
+      response.status(400).send("Título Inválido!!!")
     }
   }
 
