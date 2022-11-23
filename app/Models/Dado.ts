@@ -6,10 +6,10 @@ export default class Dado extends BaseModel {
   public id: number
 
   @column()
-  public cpf: string
+  public title: string
 
   @column()
-  public numerocartao: string
+  public message: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
