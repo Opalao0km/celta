@@ -23,7 +23,7 @@ export default class DadosController {
     }
   }
 
-  public async updateMesssage({ request, params, response }: HttpContextContract) {
+  public async update({ request, params, response }: HttpContextContract) {
     const { title } = await request.validate(DadoValidator)
     try {
       const topic = await Dado.findOrFail(params.id)
